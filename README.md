@@ -25,7 +25,13 @@ Mac NYC Subway Tracker is a small, native SwiftUI app that keeps live train time
 - **Quiet by design.** Your mode and filters persist, arrivals refresh every 30 seconds while open, and the app stays out of the Dock.
 - **Small dependency surface.** The app uses Apple's frameworks and Swift Package Manager with no third-party runtime packages.
 
-## Quick start
+## Download
+
+[Download the latest bundled release](https://github.com/marcdacosta/mac-nyc-subway-tracker/releases/latest), unzip it, and move **Mac NYC Subway Tracker.app** to `/Applications`. The release is a Universal 2 app for Apple Silicon and Intel Macs, signed with Developer ID and notarized by Apple.
+
+To launch it when you sign in, add **Mac NYC Subway Tracker** under **System Settings → General → Login Items**.
+
+## Build from source
 
 You need macOS 13 or newer and the Xcode Command Line Tools.
 
@@ -37,9 +43,6 @@ make run
 ```
 
 `make run` creates an ad-hoc-signed app at `.build/Mac NYC Subway Tracker.app` and opens it. Look for the circular train badge beside the clock in the menu bar.
-
-> [!NOTE]
-> The project currently ships as source. A future public binary release should be Developer ID signed and notarized before distribution.
 
 ### Keep it installed
 
