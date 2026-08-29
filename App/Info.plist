@@ -5,15 +5,15 @@
     <key>CFBundleDevelopmentRegion</key>
     <string>en</string>
     <key>CFBundleDisplayName</key>
-    <string>NYC Subway</string>
+    <string>Mac NYC Subway Tracker</string>
     <key>CFBundleExecutable</key>
-    <string>Nostrand</string>
+    <string>MacNYCSubwayTracker</string>
     <key>CFBundleIdentifier</key>
-    <string>com.marcdacosta.nostrand</string>
+    <string>com.marcdacosta.MacNYCSubwayTracker</string>
     <key>CFBundleInfoDictionaryVersion</key>
     <string>6.0</string>
     <key>CFBundleName</key>
-    <string>NYC Subway</string>
+    <string>Mac NYC Subway Tracker</string>
     <key>CFBundlePackageType</key>
     <string>APPL</string>
     <key>CFBundleShortVersionString</key>
@@ -27,6 +27,6 @@
     <key>NSHighResolutionCapable</key>
     <true/>
     <key>NSLocationWhenInUseUsageDescription</key>
-    <string>NYC Subway uses your location only to find nearby subway stations. Your coordinates stay on this Mac.</string>
+    <string>Mac NYC Subway Tracker uses your location to keep the nearest subway station current. Your coordinates stay on this Mac.</string>
 </dict>
 </plist>

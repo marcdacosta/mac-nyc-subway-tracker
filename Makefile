@@ -10,4 +10,4 @@ app:
 	./Scripts/build-app.sh
 
 run: app
-	open ".build/NYC Subway.app"
+	open ".build/Mac NYC Subway Tracker.app"

@@ -1,9 +1,9 @@
 import Foundation
-@testable import NostrandCore
+@testable import MacNYCSubwayTrackerCore
 import XCTest
 
 final class TransiterClientTests: XCTestCase {
-    func testDecodesAndFiltersManhattanBoundATrains() throws {
+    func testDecodesAndFiltersSelectedRouteAndDirection() throws {
         let now = Date(timeIntervalSince1970: 1_700_000_000)
         let data = Data(
             """
@@ -51,7 +51,12 @@ final class TransiterClientTests: XCTestCase {
             """.utf8
         )
 
-        let arrivals = try TransiterClient.decodeArrivals(from: data, now: now)
+        let arrivals = try TransiterClient.decodeArrivals(
+            from: data,
+            routeID: "A",
+            northbound: true,
+            now: now
+        )
 
         XCTAssertEqual(arrivals.map(\.destination), ["Inwood-207 St", "Inwood-207 St"])
         XCTAssertEqual(arrivals.map(\.time), [
@@ -155,16 +160,22 @@ final class TransiterClientTests: XCTestCase {
     func testRanksNearbyStationsLocally() {
         let stations = [
             SubwayStation(
-                id: "A45",
-                name: "Franklin Av",
+                id: "west",
+                name: "West Station",
                 latitude: 40.68138,
                 longitude: -73.956848,
                 routes: []
             ),
-            .nostrandAvenue,
             SubwayStation(
-                id: "A47",
-                name: "Kingston-Throop Avs",
+                id: "center",
+                name: "Center Station",
+                latitude: 40.680438,
+                longitude: -73.950426,
+                routes: []
+            ),
+            SubwayStation(
+                id: "east",
+                name: "East Station",
                 latitude: 40.679921,
                 longitude: -73.940858,
                 routes: []
@@ -177,7 +188,7 @@ final class TransiterClientTests: XCTestCase {
             limit: 2
         )
 
-        XCTAssertEqual(nearest.map(\.station.id), ["A46", "A45"])
+        XCTAssertEqual(nearest.map(\.station.id), ["center", "west"])
         XCTAssertEqual(nearest.first?.distanceInMeters ?? -1, 0, accuracy: 0.01)
         XCTAssertEqual(nearest.count, 2)
     }

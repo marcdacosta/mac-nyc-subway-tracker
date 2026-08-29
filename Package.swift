@@ -3,22 +3,25 @@
 import PackageDescription
 
 let package = Package(
-    name: "Nostrand",
+    name: "MacNYCSubwayTracker",
     platforms: [
         .macOS(.v13)
     ],
     products: [
-        .executable(name: "Nostrand", targets: ["NostrandMenuBar"])
+        .executable(
+            name: "MacNYCSubwayTracker",
+            targets: ["MacNYCSubwayTrackerMenuBar"]
+        )
     ],
     targets: [
-        .target(name: "NostrandCore"),
+        .target(name: "MacNYCSubwayTrackerCore"),
         .executableTarget(
-            name: "NostrandMenuBar",
-            dependencies: ["NostrandCore"]
+            name: "MacNYCSubwayTrackerMenuBar",
+            dependencies: ["MacNYCSubwayTrackerCore"]
         ),
         .testTarget(
-            name: "NostrandCoreTests",
-            dependencies: ["NostrandCore"]
+            name: "MacNYCSubwayTrackerCoreTests",
+            dependencies: ["MacNYCSubwayTrackerCore"]
         )
     ]
 )

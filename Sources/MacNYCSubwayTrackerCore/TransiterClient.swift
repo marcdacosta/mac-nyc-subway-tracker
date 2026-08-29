@@ -3,7 +3,6 @@ import Foundation
 public struct TransiterClient: Sendable {
     public static let demoBaseURL = URL(string: "https://demo.transiter.dev")!
     public static let systemID = "us-ny-subway"
-    public static let nostrandManhattanBoundStopID = "A46N"
 
     private let session: URLSession
     private let baseURL: URL
@@ -85,15 +84,6 @@ public struct TransiterClient: Sendable {
             }
     }
 
-    public func fetchNostrandA(now arrivalsNow: Date = .now) async throws -> [Arrival] {
-        try await fetchArrivals(
-            stationID: Self.nostrandManhattanBoundStopID,
-            routeID: "A",
-            northbound: true,
-            now: arrivalsNow
-        )
-    }
-
     private func requestData(from endpoint: URL) async throws -> Data {
         var request = URLRequest(url: endpoint)
         request.cachePolicy = .reloadIgnoringLocalCacheData
@@ -113,7 +103,7 @@ public struct TransiterClient: Sendable {
 
     public static func decodeArrivals(
         from data: Data,
-        routeID: String? = "A",
+        routeID: String? = nil,
         northbound: Bool = true,
         now: Date
     ) throws -> [Arrival] {

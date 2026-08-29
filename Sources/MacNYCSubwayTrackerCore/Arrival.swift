@@ -53,17 +53,6 @@ public struct SubwayStation: Identifiable, Codable, Hashable, Sendable {
         self.routes = routes
     }
 
-    public static let nostrandAvenue = SubwayStation(
-        id: "A46",
-        name: "Nostrand Av",
-        latitude: 40.680438,
-        longitude: -73.950426,
-        routes: [
-            SubwayRoute(id: "A", color: "0062CF"),
-            SubwayRoute(id: "C", color: "0062CF")
-        ]
-    )
-
     public func distanceInMeters(latitude otherLatitude: Double, longitude otherLongitude: Double) -> Double {
         let earthRadius = 6_371_000.0
         let latitudeDelta = (otherLatitude - latitude).radians
