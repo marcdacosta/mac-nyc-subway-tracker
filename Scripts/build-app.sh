@@ -4,10 +4,10 @@ set -eu
 
 script_dir=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
 repo_root=$(CDPATH= cd -- "$script_dir/.." && pwd)
-app_bundle="$repo_root/.build/Nostrand.app"
+app_bundle="$repo_root/.build/NYC Subway.app"
 
 case "$app_bundle" in
-    */.build/Nostrand.app) ;;
+    */.build/NYC\ Subway.app) ;;
     *)
         echo "Refusing to replace unexpected app path: $app_bundle" >&2
         exit 1

@@ -1,6 +1,6 @@
-# Nostrand
+# NYC Subway
 
-Nostrand is a native macOS menu-bar app for live subway arrivals, with Nostrand Avenue's Manhattan-bound A train as its default. It uses [Transiter's](https://github.com/jamespfennell/transiter) JSON API and has no third-party runtime dependencies.
+NYC Subway is a native macOS menu-bar app for live subway arrivals, with Nostrand Avenue's Manhattan-bound A train as its default. It uses [Transiter's](https://github.com/jamespfennell/transiter) JSON API and has no third-party runtime dependencies.
 
 ## Run it
 
@@ -11,7 +11,7 @@ make test
 make run
 ```
 
-`make run` creates an ad-hoc-signed `.build/Nostrand.app` and opens it. The app has no Dock icon; look for the circular A badge in the menu bar. To keep it permanently, copy the built app to `/Applications` and add it under System Settings → General → Login Items.
+`make run` creates an ad-hoc-signed `.build/NYC Subway.app` and opens it. The app has no Dock icon; look for the circular route badge in the menu bar. To keep it permanently, copy the built app to `/Applications` and add it under System Settings → General → Login Items.
 
 Open the station controls with the sliders button in the popover. From there you can:
 
@@ -50,7 +50,7 @@ The implemented location flow:
 4. Selects the nearest station and shows nearby alternatives when the fix is approximate.
 5. Keeps manual station, route, and direction controls available after location selection.
 
-Transiter also has a server-side `DISTANCE` stop search, but using it would send the Mac's coordinates to the Transiter operator. Nostrand intentionally does not call that endpoint.
+Transiter also has a server-side `DISTANCE` stop search, but using it would send the Mac's coordinates to the Transiter operator. NYC Subway intentionally does not call that endpoint.
 
 The app bundle includes the required [`NSLocationWhenInUseUsageDescription`](https://developer.apple.com/documentation/bundleresources/information-property-list/nslocationwheninuseusagedescription) privacy string. macOS may show a location indicator while the one-shot request is active.
 

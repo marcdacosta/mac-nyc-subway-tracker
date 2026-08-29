@@ -1,33 +1,11 @@
 import SwiftUI
 
 struct TrainBadge: View {
-    enum Style {
-        case route
-        case menuBar
-    }
-
     let size: CGFloat
     var routeID = "A"
     var colorHex: String? = "0062CF"
-    var style: Style = .route
 
     var body: some View {
-        badge
-            .frame(width: size, height: size)
-            .accessibilityLabel("A train times")
-    }
-
-    @ViewBuilder
-    private var badge: some View {
-        switch style {
-        case .route:
-            routeBadge
-        case .menuBar:
-            menuBarBadge
-        }
-    }
-
-    private var routeBadge: some View {
         ZStack {
             Circle()
                 .fill(routeColor)
@@ -37,17 +15,8 @@ struct TrainBadge: View {
                 .foregroundStyle(routeTextColor)
                 .minimumScaleFactor(0.5)
         }
-    }
-
-    private var menuBarBadge: some View {
-        ZStack {
-            Circle()
-                .fill(.white)
-
-            Text(routeID)
-                .font(.system(size: size * 0.68, weight: .bold))
-                .foregroundStyle(.black)
-        }
+        .frame(width: size, height: size)
+        .accessibilityLabel("\(routeID) train")
     }
 
     private var routeFontScale: CGFloat {

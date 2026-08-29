@@ -10,4 +10,4 @@ app:
 	./Scripts/build-app.sh
 
 run: app
-	open .build/Nostrand.app
+	open ".build/NYC Subway.app"
