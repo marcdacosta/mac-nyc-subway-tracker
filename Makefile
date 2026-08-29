@@ -1,4 +1,4 @@
-.PHONY: app build run test
+.PHONY: app build release run test
 
 build:
 	swift build
@@ -8,6 +8,9 @@ test:
 
 app:
 	./Scripts/build-app.sh
+
+release: test
+	./Scripts/package-release.sh
 
 run: app
 	open ".build/Mac NYC Subway Tracker.app"

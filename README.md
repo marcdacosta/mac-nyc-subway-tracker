@@ -86,7 +86,10 @@ The public Transiter demo is best-effort and convenient for development. A durab
 swift build
 swift test
 make app
+make release
 ```
+
+`make release` builds Apple Silicon and Intel slices, combines them into a Universal 2 app, signs it, and writes a ZIP plus SHA-256 checksum under `.build/releases`. It uses an ad-hoc signature by default. Maintainers can follow [RELEASING.md](RELEASING.md) to create a hardened, notarized archive suitable for distribution.
 
 The package has two main targets:
 
